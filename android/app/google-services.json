@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "22172427110",
+    "firebase_url": "https://foodieguide-3d56e-default-rtdb.firebaseio.com",
+    "project_id": "foodieguide-3d56e",
+    "storage_bucket": "foodieguide-3d56e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:22172427110:android:95ad3cc59dc92e20495ea7",
+        "android_client_info": {
+          "package_name": "com.foodieguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "22172427110-qlgatjlg1rrh45fbd8cu23sqf2ec4ng2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuAWIu3YV67vuy35qdBxv3p8xwRXYI2Z8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "22172427110-qlgatjlg1rrh45fbd8cu23sqf2ec4ng2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
