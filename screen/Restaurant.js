@@ -11,193 +11,135 @@ import {
   StatusBar,
 } from 'react-native';
 import React from 'react';
+import appStyles from '../assets/styles/appStyles';
 const Separator = () => <View style={styles.separator} />;
 // const Restaurant = ({navigation}) => {
 //   const onPress = () => {
 //     navigation.navigate('ReviewPage');
 //   };
+
 const Restaurant = ({navigation}) => {
   const onPress = () => {
     navigation.navigate('ReviewPage');
   };
   return (
-    <View style={styles.container1}>
-      <View style={styles.top}></View>
-      <SafeAreaView style={styles.container}>
-        <ScrollView style={styles.scrollView}>
+    <View style={appStyles.containerMain}>
+      <View style={appStyles.headerMain}>
+        <View style={appStyles.fixMainHeader}>
+          <Text style={appStyles.txtAppName}>FOODIE GUIDE</Text>
+        </View>
+      </View>
+
+      <SafeAreaView style={appStyles.container}>
+        <ScrollView style={appStyles.scrollView}>
           <Image
-            style={styles.image}
+            style={appStyles.restaurantDetailImg}
             source={require('../assets/img/tootime.jpg')}
           />
-          <View style={styles.container}>
-            <Text> </Text>
+          <View style={appStyles.container}>
             <View>
-              <View style={styles.box4}>
-                <Text style={styles.text1}>
+              <View style={appStyles.mainPageBox}>
+                <Text style={appStyles.restaurantTxtName}>
                   TOO TIME
                   {'\n'}
-                  <Text
-                    style={{
-                      color: 'black',
-                      paddingLeft: 10,
-                      flex: 0.3,
-                      fontSize: 14,
-                      height: 18,
-                    }}>
+                  <Text style={appStyles.restaurantInfo}>
                     <Image
-                      style={{width: 20, height: 20}}
+                      style={appStyles.iconSize}
                       source={require('../assets/img/star_filled.png')}
                     />
-                    4.9
+                    4.9 2 รีวิว
+                    {'\n'}คาเฟ่, ร้านอาหาร
                   </Text>
-                  <Text
-                    style={{
-                      color: '#8B8B8B',
-                      paddingLeft: 10,
-                      flex: 0.3,
-                      fontSize: 14,
-                      height: 18,
-                    }}>
-                    {' '}
-                    2 รีวิว
-                  </Text>
-                  <Text style={styles.text2}> คาเฟ่, ร้านอาหาร</Text>
                 </Text>
-                <Separator />
-                <View style={styles.fixToText}>
-                  <View style={styles.box}>
+                <View style={appStyles.fixToText}>
+                  <View style={appStyles.restaurantReviewBox}>
                     <Pressable onPress={onPress}>
-                      <Text style={styles.text4}>
+                      <Text style={appStyles.restaurantInfoWhite}>
                         <Image
-                          style={{
-                            width: 18,
-                            height: 18,
-                          }}
+                          style={appStyles.iconSize}
                           source={require('../assets/img/pencil.png')}
                         />
-                        เขียนรีวิว
+                        {' เขียนรีวิว'}
                       </Text>
                     </Pressable>
                   </View>
 
-                  <View style={styles.box2}>
-                    <Text
-                      style={styles.Icon1}
+                  <View style={appStyles.iconBox}>
+                    <Pressable
                       onPress={() => Alert.alert('Left button pressed')}>
                       <Image
-                        style={{
-                          width: 18,
-                          height: 18,
-                        }}
-                        source={require('../assets/img/camera.png')}
-                      />
-                    </Text>
-                  </View>
-                  <View style={styles.box2}>
-                    <Text
-                      style={styles.Icon1}
-                      onPress={() => Alert.alert('Left button pressed')}>
-                      <Image
-                        style={{
-                          width: 18,
-                          height: 18,
-                        }}
+                        style={appStyles.iconSize}
                         source={require('../assets/img/bookmark.png')}
                       />
-                    </Text>
+                    </Pressable>
                   </View>
 
-                  <View style={styles.box2}>
-                    <Text
-                      style={styles.Icon1}
+                  <View style={appStyles.iconBox}>
+                    <Pressable
                       onPress={() => Alert.alert('Left button pressed')}>
                       <Image
-                        style={{
-                          width: 18,
-                          height: 18,
-                        }}
+                        style={appStyles.iconSize}
                         source={require('../assets/img/share.png')}
                       />
-                    </Text>
+                    </Pressable>
                   </View>
-                  <Text style={styles.text2}>{'\n'}</Text>
                 </View>
               </View>
             </View>
             <Text> </Text>
           </View>
 
-          <View style={styles.box4}>
-            <Text style={styles.text3}>
+          <View style={appStyles.mainPageBox}>
+            <Text style={appStyles.restaurantInfoDetailHead}>
               {'\n'}
               เวลาเปิด :
-              <Text style={styles.text2}> อังคาร - อาทิตย์ 10:00 - 21:00</Text>
+              <Text style={appStyles.restaurantInfoDetail}>
+                {' '}
+                อังคาร - อาทิตย์ 10:00 - 21:00
+              </Text>
             </Text>
-            <Text style={styles.text3}>
+            <Text style={appStyles.restaurantInfoDetailHead}>
               ที่ตั้ง :
-              <Text style={styles.text2}> 213/16 หมู่ 3 นครศรีธรรมราช</Text>
+              <Text style={appStyles.restaurantInfoDetail}>
+                {' '}
+                213/16 หมู่ 3 นครศรีธรรมราช
+              </Text>
             </Text>
-            <Text style={styles.text3}>
+            <Text style={appStyles.restaurantInfoDetailHead}>
               เบอร์โทร :
-              <Text style={styles.text2}> 084-6983273, 086-9449317</Text>
+              <Text style={appStyles.restaurantInfoDetail}>
+                {' '}
+                084-6983273, 086-9449317
+              </Text>
               {'\n'}
             </Text>
           </View>
           <Text> </Text>
-          <View style={styles.box4}>
-            <Text style={styles.text3}>
+          <View style={appStyles.mainPageBox}>
+            <Text style={appStyles.restaurantInfoDetail}>
               {'\n'}2 รีวิว
-              <Text
-                style={{
-                  color: '#808B96',
-                  paddingLeft: 10,
-                  flex: 0.3,
-                  fontSize: 12,
-                  height: 18,
-                }}>
-                {' '}
-                2 เรตติ้ง
-              </Text>
+              <Text> 2 เรตติ้ง</Text>
             </Text>
-            <Text
-              style={{
-                color: '#f19b38',
-                paddingLeft: 0,
-                flex: 1,
-                fontSize: 30,
-                textAlign: 'center',
-              }}>
+            <Text style={appStyles.restaurantInfoDetailHead}>
               4.9
               <Text> </Text>
-              <Text
-                style={{
-                  color: '#808B96',
-                  paddingLeft: 0,
-                  flex: 1,
-                  fontSize: 15,
-                  textAlign: 'center',
-                }}>
-                จาก 5
-              </Text>
+              <Text style={appStyles.restaurantInfoDetail}>จาก 5</Text>
             </Text>
-            <Text style={styles.text2}>
-              <Text
-                style={styles.text3}
-                onPress={() => Alert.alert('Left button pressed')}>
-                ยอดนิยม
-              </Text>
+            <Text style={appStyles.restaurantInfoDetail}>
+              <Pressable onPress={() => Alert.alert('Left button pressed')}>
+                <Text style={appStyles.restaurantInfoDetail}>
+                  ยอดนิยม{'  '}
+                </Text>
+              </Pressable>
               <Image
-                style={{
-                  width: 18,
-                  height: 18,
-                }}
+                style={appStyles.iconSize}
                 source={require('../assets/img/caretdown.png')}
               />
             </Text>
             <View>
-              <View style={styles.fixToText}>
+              <View style={appStyles.fixToText}>
                 <Image
-                  style={{width: 50, height: 50}}
+                  style={appStyles.iconProfile}
                   source={require('../assets/img/person.png')}
                 />
                 <Text
@@ -222,37 +164,28 @@ const Restaurant = ({navigation}) => {
                 </Text>
               </View>
 
-              <View style={styles.fixToText2}>
+              <View style={appStyles.fixToText2}>
                 <Image
-                  style={{width: 25, height: 25}}
+                  style={appStyles.iconSize}
                   source={require('../assets/img/star_filled.png')}
                 />
                 <Image
-                  style={{width: 25, height: 25}}
+                  style={appStyles.iconSize}
                   source={require('../assets/img/star_filled.png')}
                 />
                 <Image
-                  style={{width: 25, height: 25}}
+                  style={appStyles.iconSize}
                   source={require('../assets/img/star_filled.png')}
                 />
                 <Image
-                  style={{width: 25, height: 25}}
+                  style={appStyles.iconSize}
                   source={require('../assets/img/star_filled.png')}
                 />
                 <Image
-                  style={{width: 25, height: 25}}
+                  style={appStyles.iconSize}
                   source={require('../assets/img/star_filled.png')}
                 />
-                <Text
-                  style={{
-                    color: 'gray',
-                    margin: 5,
-                    flex: 0,
-                    fontSize: 13,
-                    paddingLeft: 1,
-                  }}>
-                  1 พ.ย. 2022
-                </Text>
+                <Text style={appStyles.dateReview}>1 พ.ย. 2022</Text>
               </View>
               <Text
                 style={{
@@ -522,53 +455,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#FEF5E7',
     marginHorizontal: 20,
   },
-  container1: {
-    flex: 1,
-    backgroundColor: '#fcf1e8',
-  },
-  image: {
-    height: 300,
-    width: 330,
-  },
-  fixToText: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    margin: 4,
-  },
-  fixToText2: {
-    flexDirection: 'row',
-    margin: 4,
-    paddingLeft: 50,
-  },
   separator: {
     marginVertical: 8,
     borderBottomColor: '#737373',
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
 
-  box: {
-    flex: 0.4,
-    //backgroundColor: "#F08080",
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    borderBottomRightRadius: 10,
-    borderBottomLeftRadius: 10,
-    backgroundColor: '#f19b38',
-    width: 200,
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  box2: {
-    flex: 0.15,
-    //backgroundColor: "#F08080",
-    borderRadius: 10,
-    backgroundColor: '#D0D0D0',
-    width: 50,
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   box3: {
     flex: 0.5,
     //backgroundColor: "#F08080",
@@ -597,22 +489,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontWeight: 'bold',
   },
-  text2: {
-    //fontWeight: 'bold',
-    margin: 5,
-    paddingLeft: 20,
-    fontSize: 15,
-    textAlign: 'left',
-    color: '#808B96',
-  },
-  text3: {
-    fontWeight: 'bold',
-    margin: 5,
-    paddingLeft: 20,
-    fontSize: 15,
-    textAlign: 'left',
-    color: '#f19b38',
-  },
+
   button: {
     alignItems: 'center',
     justifyContent: 'center',

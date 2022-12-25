@@ -54,6 +54,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>charcoal.ttf</string>
+		<string>candy.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -63,7 +63,7 @@ const MainPage = ({navigation, route}) => {
   return (
     <View style={appStyles.containerMain}>
       <View style={appStyles.headerMain}>
-        <View style={appStyles.fixMainHeader}>
+        <View style={appStyles.fixToText}>
           <Text style={appStyles.txtAppName}>FOODIE GUIDE</Text>
           <Pressable style={appStyles.btnLoginPress} onPress={login}>
             <Text style={appStyles.txtBtnPress}>Login</Text>

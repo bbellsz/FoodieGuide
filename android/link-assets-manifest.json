@@ -2,6 +2,10 @@
   "migIndex": 1,
   "data": [
     {
+      "path": "assets/fonts/candy.ttf",
+      "sha1": "7824d9db0acce1f877298112ef04212a1f11d1c5"
+    },
+    {
       "path": "assets/fonts/charcoal.ttf",
       "sha1": "3accde7a480b2ba974c8eed44ae5a6ba56050ba7"
     }
