@@ -7,6 +7,7 @@ import Login from './screen/Login';
 import MainPage from './screen/MainPage';
 import Restaurant from './screen/Restaurant';
 import ReviewPage from './screen/ReviewPage';
+import Profile from './screen/Profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,12 @@ const App = () => {
         <Stack.Screen
           name="MainPage"
           component={MainPage}
+          options={{headerShown: false}}
+        />
+
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
           options={{headerShown: false}}
         />
 

@@ -1,8 +1,15 @@
 //profile
-import {StyleSheet, Text, View, Image, Pressable} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Pressable,
+  TextInput,
+  Button,
+} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import auth from '@react-native-firebase/auth';
-import {TextInput, Button} from 'react-native-paper';
 
 const Profile = ({navigation}) => {
   // Set an initializing state whilst Firebase connects

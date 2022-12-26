@@ -14,7 +14,7 @@ import {
 import React, {useState} from 'react';
 import appStyles from '../assets/styles/appStyles';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
-const Separator = () => <View style={styles.separator} />;
+const Separator = () => <View style={appStyles.separator} />;
 export default function ReviewPage() {
   const [text, onChangeText] = React.useState('');
   const [text2, onChangeText2] = React.useState('');
@@ -39,22 +39,24 @@ export default function ReviewPage() {
         <ScrollView style={appStyles.scrollView}>
           <View>
             <View style={appStyles.mainPageBox}>
-              <View style={appStyles.fixToText}>
+              <View style={appStyles.fixToText3}>
                 <Image
                   style={appStyles.imgWriteReview}
                   source={require('../assets/img/tootime.jpg')}
                 />
-                <Text style={appStyles.restaurantTxtName2}>TOO TIME{'\n'}</Text>
-                <Text style={appStyles.restaurantInfo2}>
-                  <Image
-                    style={appStyles.iconSize}
-                    source={require('../assets/img/star_filled.png')}
-                  />
-                  4.9 2 เรตติ้ง (2 รีวิว)
-                  {'\n'} คาเฟ่, ร้านอาหาร
-                  {'\n'} เปิด อังคาร - อาทิตย์
-                  {'\n'} 10:00 - 21:00
-                </Text>
+                <View>
+                  <Text style={appStyles.txtWriteReview}>TOO TIME</Text>
+                  <Text style={appStyles.restaurantInfo4}>
+                    <Image
+                      style={appStyles.iconSize}
+                      source={require('../assets/img/star_filled.png')}
+                    />
+                    4.9 2 เรตติ้ง (2 รีวิว)
+                    {'\n'} คาเฟ่, ร้านอาหาร
+                    {'\n'} เปิด อังคาร - อาทิตย์
+                    {'\n'} 10:00 - 21:00
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
@@ -62,8 +64,9 @@ export default function ReviewPage() {
           {/* รีวิว*/}
           <View style={appStyles.mainPageBox}>
             <Text style={appStyles.restaurantTxtName3}>เขียนรีวิว</Text>
+            <Separator />
             <Text style={appStyles.restaurantTxtName2}>ให้คะแนนร้าน</Text>
-            <View style={styles.customRatingBarStyles}>
+            <View style={appStyles.customRatingBarStyles}>
               {maxRating.map((item, key) => {
                 return (
                   <TouchableOpacity
@@ -71,7 +74,7 @@ export default function ReviewPage() {
                     key={item}
                     onPress={() => setdefaultRating(item)}>
                     <Image
-                      style={styles.starImgStyle}
+                      style={appStyles.starImgStyle}
                       source={
                         item <= defaultRating
                           ? {uri: starImgFilled}
@@ -116,7 +119,7 @@ export default function ReviewPage() {
           <View style={appStyles.mainPageBox}>
             <Text style={appStyles.restaurantTxtName3}>รูปภาพ</Text>
             <Separator />
-            <View style={styles.fixToText}>
+            <View style={appStyles.fixToText}>
               <View style={appStyles.inputImg} />
               <View style={{width: 140}}>
                 <Pressable

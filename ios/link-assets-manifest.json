@@ -8,6 +8,14 @@
     {
       "path": "assets/fonts/charcoal.ttf",
       "sha1": "3accde7a480b2ba974c8eed44ae5a6ba56050ba7"
+    },
+    {
+      "path": "assets/fonts/MN Kha Ki.ttf",
+      "sha1": "558645b0a1bf2f78cae4ea7f79701eb5ad2fa671"
+    },
+    {
+      "path": "assets/fonts/MN Tomyam.ttf",
+      "sha1": "d1aefab409981ba4d3d5a480f6080d306620dda5"
     }
   ]
 }
