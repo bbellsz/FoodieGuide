@@ -11,11 +11,13 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import appStyles from '../assets/styles/appStyles';
 import Pressable from 'react-native/Libraries/Components/Pressable/Pressable';
+import firestore from '@react-native-firebase/firestore';
 const Separator = () => <View style={appStyles.separator} />;
-export default function ReviewPage() {
+
+export default function ReviewPage(route) {
   const [text, onChangeText] = React.useState('');
   const [text2, onChangeText2] = React.useState('');
   const [text3, onChangeText3] = React.useState('');
@@ -26,7 +28,22 @@ export default function ReviewPage() {
     'https://raw.githubusercontent.com/bbellsz/Help/master/assets/img/star_filled.png?token=GHSAT0AAAAAAB22BAZYKCD6QO3QV4AKMD22Y5FU7KA';
   const starImgCorner =
     'https://raw.githubusercontent.com/bbellsz/Help/master/assets/img/star_corner.png?token=GHSAT0AAAAAAB22BAZY2DSQLF6J7RN4HO2GY5FU6YQ';
+  const [name, setName] = useState([]);
+  const [image, setImage] = useState([]);
+  const [day, setDay] = useState([]);
 
+  useEffect(() => {
+    firestore()
+      .collection('restaurant')
+      // .where('name', '==', route.params.name)
+      .onSnapshot(querySnapshot => {
+        querySnapshot.forEach(documentSnapshot => {
+          setName(documentSnapshot.data().name);
+          setImage(documentSnapshot.data().image);
+          setDay(documentSnapshot.data().day);
+        });
+      });
+  }, []);
   return (
     <View style={appStyles.containerMain}>
       <View style={appStyles.headerMain}>
@@ -40,12 +57,9 @@ export default function ReviewPage() {
           <View>
             <View style={appStyles.mainPageBox}>
               <View style={appStyles.fixToText3}>
-                <Image
-                  style={appStyles.imgWriteReview}
-                  source={require('../assets/img/tootime.jpg')}
-                />
+                <Image style={appStyles.imgWriteReview} source={{uri: image}} />
                 <View>
-                  <Text style={appStyles.txtWriteReview}>TOO TIME</Text>
+                  <Text style={appStyles.txtWriteReview}>{name}</Text>
                   <Text style={appStyles.restaurantInfo4}>
                     <Image
                       style={appStyles.iconSize}
@@ -53,7 +67,7 @@ export default function ReviewPage() {
                     />
                     4.9 2 เรตติ้ง (2 รีวิว)
                     {'\n'} คาเฟ่, ร้านอาหาร
-                    {'\n'} เปิด อังคาร - อาทิตย์
+                    {'\n'} เปิดวัน: {day}
                     {'\n'} 10:00 - 21:00
                   </Text>
                 </View>

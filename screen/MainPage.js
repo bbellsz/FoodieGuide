@@ -37,6 +37,7 @@ const MainPage = ({navigation, route}) => {
           });
 
           setName(data);
+
           console.log(data);
         });
       });
@@ -108,7 +109,11 @@ const MainPage = ({navigation, route}) => {
                     </Text>
                     <Pressable
                       style={appStyles.btnViewPress}
-                      onPress={restaurant}>
+                      onPress={() =>
+                        navigation.navigate('Restaurant', {
+                          name: item.name,
+                        })
+                      }>
                       <Text style={appStyles.btnTxt}>View</Text>
                     </Pressable>
                     <View

@@ -12,53 +12,34 @@ import {
   FlatList,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
-import appStyles from '../assets/styles/appStyles';
 import firestore from '@react-native-firebase/firestore';
+import appStyles from '../assets/styles/appStyles';
 const Separator = () => <View style={appStyles.separator} />;
 // const Restaurant = ({navigation}) => {
 //   const onPress = () => {
 //     navigation.navigate('ReviewPage');
 //   };
 
-const Restaurant = ({navigation}) => {
+const Restaurant = ({navigation, route}) => {
   const onPress = () => {
     navigation.navigate('ReviewPage');
   };
   const [name, setName] = useState([]);
   const [image, setImage] = useState([]);
+  const [day, setDay] = useState([]);
   useEffect(() => {
     firestore()
       .collection('restaurant')
-      .get()
-      .then(querySnapshot => {
-        const data = [];
+      .where('name', '==', route.params.name)
+      .onSnapshot(querySnapshot => {
         querySnapshot.forEach(documentSnapshot => {
-          data.push({
-            ...documentSnapshot.data(),
-          });
-
-          setName(data);
-          console.log(data);
+          setName(documentSnapshot.data().name);
+          setImage(documentSnapshot.data().image);
+          setDay(documentSnapshot.data().day);
         });
       });
-
-    console.log(name);
   }, []);
 
-  function renderItem({item}) {
-    return (
-      <View>
-        <TouchableOpacity
-          style={{borderBottomWidth: 1, borderBottomColor: '#ccc'}}>
-          <View>
-            <Image source={{uri: item.image}} />
-          </View>
-
-          <Text style={styles.button}>{item.name}</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
   return (
     <View style={appStyles.containerMain}>
       <View style={appStyles.headerMain}>
@@ -69,15 +50,12 @@ const Restaurant = ({navigation}) => {
 
       <SafeAreaView style={appStyles.container}>
         <ScrollView style={appStyles.scrollView}>
-          <Image
-            style={appStyles.restaurantDetailImg}
-            source={require('../assets/img/tootime.jpg')}
-          />
+          {/* <Image style={appStyles.restaurantDetailImg} source={{uri: image}} /> */}
           <View style={appStyles.container}>
             <View>
               <View style={appStyles.mainPageBox}>
                 <Text style={appStyles.restaurantTxtName}>
-                  TOO TIME
+                  {name}
                   {'\n'}
                   <Text style={appStyles.restaurantInfo}>
                     <Image
@@ -90,7 +68,12 @@ const Restaurant = ({navigation}) => {
                 </Text>
                 <View style={appStyles.fixToText}>
                   <View style={appStyles.restaurantReviewBox}>
-                    <Pressable onPress={onPress}>
+                    <Pressable
+                      onPress={() =>
+                        navigation.navigate('ReviewPage', {
+                          name: name,
+                        })
+                      }>
                       <Text style={appStyles.restaurantInfoWhite}>
                         <Image
                           style={appStyles.iconSize}
@@ -130,10 +113,7 @@ const Restaurant = ({navigation}) => {
             <Text style={appStyles.restaurantInfoDetailHead}>
               {'\n'}
               เวลาเปิด :
-              <Text style={appStyles.restaurantInfoDetail}>
-                {' '}
-                อังคาร - อาทิตย์ 10:00 - 21:00
-              </Text>
+              <Text style={appStyles.restaurantInfoDetail}> {day}</Text>
             </Text>
             <Text style={appStyles.restaurantInfoDetailHead}>
               ที่ตั้ง :
