@@ -8,6 +8,9 @@ import MainPage from './screen/MainPage';
 import Restaurant from './screen/Restaurant';
 import ReviewPage from './screen/ReviewPage';
 import Profile from './screen/Profile';
+import Search from './screen/Search';
+import Result from './screen/Result';
+import AddReview from './screen/AddReview';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,7 +35,40 @@ const App = () => {
           component={MainPage}
           options={{headerShown: false}}
         />
-
+        <Stack.Screen
+          name="Search"
+          component={Search}
+          options={{
+            title: 'FOODIE GUIDE',
+            headerStyle: {
+              backgroundColor: '#ffcd9b',
+            },
+            headerTintColor: 'black',
+            headerTitleStyle: {
+              fontFamily: 'MN Tomyam',
+              padding: 10,
+              margin: 5,
+              fontSize: 26,
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Result"
+          component={Result}
+          options={{
+            title: 'FOODIE GUIDE',
+            headerStyle: {
+              backgroundColor: '#ffcd9b',
+            },
+            headerTintColor: 'black',
+            headerTitleStyle: {
+              fontFamily: 'MN Tomyam',
+              padding: 10,
+              margin: 5,
+              fontSize: 26,
+            },
+          }}
+        />
         <Stack.Screen
           name="Profile"
           component={Profile}
@@ -42,13 +78,37 @@ const App = () => {
         <Stack.Screen
           name="Restaurant"
           component={Restaurant}
-          options={{headerShown: false}}
+          options={{
+            title: 'FOODIE GUIDE',
+            headerStyle: {
+              backgroundColor: '#ffcd9b',
+            },
+            headerTintColor: 'black',
+            headerTitleStyle: {
+              fontFamily: 'MN Tomyam',
+              padding: 10,
+              margin: 5,
+              fontSize: 26,
+            },
+          }}
         />
 
         <Stack.Screen
-          name="ReviewPage"
-          component={ReviewPage}
-          options={{headerShown: false}}
+          name="AddReview"
+          component={AddReview}
+          options={{
+            title: 'FOODIE GUIDE',
+            headerStyle: {
+              backgroundColor: '#ffcd9b',
+            },
+            headerTintColor: 'black',
+            headerTitleStyle: {
+              fontFamily: 'MN Tomyam',
+              padding: 10,
+              margin: 5,
+              fontSize: 26,
+            },
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

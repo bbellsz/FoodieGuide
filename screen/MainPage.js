@@ -78,9 +78,22 @@ const MainPage = ({navigation, route}) => {
             <TextInput style={appStyles.searchTxt} placeholder="Search" />
           </View>
           <Text></Text>
+          <View style={appStyles.restaurantReviewBox}>
+            <View>
+              <Pressable
+                onPress={() =>
+                  navigation.navigate('Search', {
+                    name: name,
+                  })
+                }>
+                <Text style={appStyles.restaurantInfoWhite}> Search</Text>
+              </Pressable>
+            </View>
+          </View>
           <View style={appStyles.mainPageBox}>
             <View>
               <FlatList
+                style={appStyles.scrollView}
                 data={name}
                 renderItem={({item}) => (
                   <View>
@@ -99,7 +112,7 @@ const MainPage = ({navigation, route}) => {
                       />
                       {' 4.9'}
                       {' 2 เรตติ้ง (2 รีวิว)'}
-                      {'\n ประเภทอาหาร: '}
+                      {'\n ประเภทอาหาร: '} {item.type}
                       {'\n เปิดวัน: '}
                       {item.day}
                     </Text>

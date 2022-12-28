@@ -46,18 +46,18 @@ export default function ReviewPage(route) {
   }, []);
   return (
     <View style={appStyles.containerMain}>
-      <View style={appStyles.headerMain}>
+      {/* <View style={appStyles.headerMain}>
         <View style={appStyles.fixMainHeader}>
           <Text style={appStyles.txtAppName}>FOODIE GUIDE</Text>
         </View>
-      </View>
+      </View> */}
 
       <SafeAreaView style={appStyles.container}>
         <ScrollView style={appStyles.scrollView}>
           <View>
             <View style={appStyles.mainPageBox}>
               <View style={appStyles.fixToText3}>
-                <Image style={appStyles.imgWriteReview} source={{uri: image}} />
+                {/* <Image style={appStyles.imgWriteReview} source={{uri: image}} /> */}
                 <View>
                   <Text style={appStyles.txtWriteReview}>{name}</Text>
                   <Text style={appStyles.restaurantInfo4}>
@@ -119,12 +119,6 @@ export default function ReviewPage(route) {
             <TextInput
               style={appStyles.input}
               placeholder="รายการอาหารหรือเครื่องดื่มใดก็ได้ ที่ได้รับประทาน หรือ ชื่นชอบ"
-              value={text3}
-            />
-            <Text style={appStyles.restaurantInfo3}>ราคาต่อหัว</Text>
-            <TextInput
-              style={appStyles.input}
-              placeholder="ราคาอาหารเฉลี่ยต่อหัว"
               value={text3}
             />
           </View>

@@ -22,11 +22,15 @@ const Separator = () => <View style={appStyles.separator} />;
 
 const Restaurant = ({navigation, route}) => {
   const onPress = () => {
-    navigation.navigate('ReviewPage');
+    navigation.navigate('AddReview');
   };
   const [name, setName] = useState([]);
   const [image, setImage] = useState([]);
   const [day, setDay] = useState([]);
+  const [description, setDescription] = useState([]);
+  const [address, setAddress] = useState([]);
+  const [phone, setPhone] = useState([]);
+
   useEffect(() => {
     firestore()
       .collection('restaurant')
@@ -36,21 +40,24 @@ const Restaurant = ({navigation, route}) => {
           setName(documentSnapshot.data().name);
           setImage(documentSnapshot.data().image);
           setDay(documentSnapshot.data().day);
+          setDescription(documentSnapshot.data().description);
+          setAddress(documentSnapshot.data().address);
+          setPhone(documentSnapshot.data().phone);
         });
       });
   }, []);
 
   return (
     <View style={appStyles.containerMain}>
-      <View style={appStyles.headerMain}>
+      {/* <View style={appStyles.headerMain}>
         <View style={appStyles.fixMainHeader}>
           <Text style={appStyles.txtAppName}>FOODIE GUIDE</Text>
         </View>
-      </View>
+      </View> */}
 
       <SafeAreaView style={appStyles.container}>
         <ScrollView style={appStyles.scrollView}>
-          {/* <Image style={appStyles.restaurantDetailImg} source={{uri: image}} /> */}
+          {/* //          <Image style={appStyles.restaurantDetailImg} source={{uri: image}} /> */}
           <View style={appStyles.container}>
             <View>
               <View style={appStyles.mainPageBox}>
@@ -63,14 +70,15 @@ const Restaurant = ({navigation, route}) => {
                       source={require('../assets/img/star_filled.png')}
                     />
                     4.9 2 รีวิว
-                    {'\n'}คาเฟ่, ร้านอาหาร
+                    {'\n'}
+                    {description}
                   </Text>
                 </Text>
                 <View style={appStyles.fixToText}>
                   <View style={appStyles.restaurantReviewBox}>
                     <Pressable
                       onPress={() =>
-                        navigation.navigate('ReviewPage', {
+                        navigation.navigate('AddReview', {
                           name: name,
                         })
                       }>
@@ -117,17 +125,11 @@ const Restaurant = ({navigation, route}) => {
             </Text>
             <Text style={appStyles.restaurantInfoDetailHead}>
               ที่ตั้ง :
-              <Text style={appStyles.restaurantInfoDetail}>
-                {' '}
-                213/16 หมู่ 3 นครศรีธรรมราช
-              </Text>
+              <Text style={appStyles.restaurantInfoDetail}> {address}</Text>
             </Text>
             <Text style={appStyles.restaurantInfoDetailHead}>
               เบอร์โทร :
-              <Text style={appStyles.restaurantInfoDetail}>
-                {' '}
-                084-6983273, 086-9449317
-              </Text>
+              <Text style={appStyles.restaurantInfoDetail}> {phone}</Text>
               {'\n'}
             </Text>
           </View>

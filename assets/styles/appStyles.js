@@ -162,6 +162,11 @@ const appStyles = StyleSheet.create({
     marginHorizontal: 20,
     marginBottom: 15,
   },
+  scrollView2: {
+      backgroundColor: '#FEF5E7',
+      marginHorizontal: 20,
+      marginBottom: 15,
+    },
   iconSize: {
     width: 20,
     height: 20,
@@ -210,12 +215,25 @@ const appStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  restaurantSearchBox: {
+      flex: 1,
+      //backgroundColor: "#F08080",
+      borderTopLeftRadius: 10,
+      borderTopRightRadius: 10,
+      borderBottomRightRadius: 10,
+      borderBottomLeftRadius: 10,
+      justifyContent: 'center',
+      alignItems: 'center',
+      alignSelf: 'stretch',
+    },
   restaurantImg: {
     width: '95%',
     height: 200,
     borderRadius: 10,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
     alignSelf: 'center',
+
+
   },
   restaurantDetailImg: {
     height: 300,
@@ -247,7 +265,7 @@ const appStyles = StyleSheet.create({
     fontFamily: 'MN Tomyam',
     fontSize: 20,
     color: '#808B96',
-    textAlign: 'center',
+    textAlign: 'left',
   },
   restaurantInfo2: {
     fontFamily: 'MN Tomyam',
